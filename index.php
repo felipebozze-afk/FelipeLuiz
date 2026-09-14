@@ -9,7 +9,12 @@
     <?php
      $nome = "felipe";
      $idade = 37;
-     
+
+     if ($idade >= 18) {
+         echo "Maior de idade";
+     } else {
+         echo "Menor de idade";
+     }
 ?>
 </html>
 <h1> nome: <?=  $nome ?>   </h1>
