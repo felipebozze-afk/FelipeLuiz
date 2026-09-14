@@ -7,7 +7,12 @@
 </head>
 <body>
     <?php
-echo "<h1> mundo </h1>";
+     $nome = "felipe";
+     $idade = 37;
+     
 ?>
-</body>
+</html>
+<h1> nome: <?=  $nome ?>   </h1>
+    <p>idade: <?= $idade ?> </p>
+    <html>
 </html>
