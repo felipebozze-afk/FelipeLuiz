@@ -7,14 +7,13 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $nome = $_POST["nome"];
             $idade = $_POST["idade"];
-        
-        }
-        if ($idade >=18)
+
+            if ($idade >=18)
             {
                 $resultado = "você é maior de idade";
             }
 
-             else if($idade <= 0)
+            else if($idade <= 0)
             {
                 $resultado = "invalido";
             }
@@ -22,16 +21,9 @@
             else {
                 $resultado ="você é menor de idade";
             }
-
-           
+        }
 
     ?>
-       <?php
-         if ($resultado != "") {
-            echo "<h2>Olá, $nome! $resultado</h2>";
-         }
-       ?>
-        
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -56,8 +48,13 @@
 
              <button type="submit">Verificar</button>
 
-
          </form>
+
+         <?php
+            if ($resultado != "") {
+               echo "<h2>Olá, $nome! $resultado</h2>";
+            }
+         ?>
 
          </div>
 
