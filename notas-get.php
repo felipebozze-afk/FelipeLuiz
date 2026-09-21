@@ -5,14 +5,14 @@ $media = 0;
 $situacao = "";
 $enviado = false;
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = $_POST["nome"];
-    $idade = $_POST["idade"];
-    $nota1 = $_POST["nota1"];
-    $nota2 = $_POST["nota2"];
-    $nota3 = $_POST["nota3"];
-    $nota4 = $_POST["nota4"];
-    $nota5 = $_POST["nota5"];
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["nome"])) {
+    $nome = $_GET["nome"];
+    $idade = $_GET["idade"];
+    $nota1 = $_GET["nota1"];
+    $nota2 = $_GET["nota2"];
+    $nota3 = $_GET["nota3"];
+    $nota4 = $_GET["nota4"];
+    $nota5 = $_GET["nota5"];
 
     $media = ($nota1 * 2 + $nota2 * 3 + $nota3 + $nota4 + $nota5 * 3) / 10;
 
@@ -34,13 +34,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <title>Situação do Aluno</title>
+    <title>Situação do Aluno - GET</title>
 </head>
 <body>
     <div class="container">
-        <h1>Situação do Aluno</h1>
+        <h1>Situação do Aluno - GET</h1>
 
-        <form method="POST">
+        <form method="GET">
             <input type="text" name="nome" required placeholder="Digite o nome do aluno">
             <input type="number" name="idade" min="1" required placeholder="Digite a idade">
             <input type="number" name="nota1" min="0" max="10" step="0.1" required placeholder="Nota 1 (peso 2)">

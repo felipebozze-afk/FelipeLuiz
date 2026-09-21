@@ -24,12 +24,6 @@
         }
 
     ?>
-       <?php
-         if ($resultado != "") {
-            echo "<h2>Olá, $nome! $resultado</h2>";
-         }
-       ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -55,6 +49,12 @@
              <button type="submit">Verificar</button>
 
          </form>
+
+         <?php
+            if ($resultado != "") {
+                echo "<h2>Olá, $nome! $resultado</h2>";
+            }
+         ?>
 
          </div>
 
