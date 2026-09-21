@@ -27,11 +27,10 @@
 
     ?>
        <?php
-         $resultado != "" {
-            <?php echo "<h2>Olá, $nome! $resultado</h2>"; ?>
+         if ($resultado != "") {
+            echo "<h2>Olá, $nome! $resultado</h2>";
          }
-           
-         ?>
+       ?>
         
 <!DOCTYPE html>
 <html lang="pt-br">
