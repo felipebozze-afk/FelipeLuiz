@@ -1,45 +1,104 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    padding: 0;
-
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-    background-color: #0d47a1;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 100vh;
+    padding: 30px 16px;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #eef2f7;
+    color: #263238;
 }
 
 .container {
-    width: 350px;
-
-    background-color: #d32f2f;
-
-    padding: 35px;
-
+    width: 100%;
+    max-width: 480px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #ffffff;
     border-radius: 12px;
-
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
     text-align: center;
 }
 
 h1 {
-
-    font-size: 30px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    margin-bottom: 25px;
-
-    color: #000000;
+    margin: 0 0 24px;
+    color: #174a7e;
+    font-size: 28px;
 }
 
-p {
-    font-size: 18px;
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
 
-    color: #d0cbcb;
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5df;
+    border-radius: 6px;
+    font-size: 16px;
+}
 
-    margin: 15px 0;
+input:focus {
+    outline: 2px solid #90caf9;
+    border-color: #1976d2;
+}
+
+button {
+    padding: 12px;
+    border: 0;
+    border-radius: 6px;
+    background-color: #1769aa;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0d4f85;
+}
+
+.card {
+    margin-top: 22px;
+    padding: 12px 18px;
+    border: 2px solid;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.card p {
+    margin: 10px 0;
+    line-height: 1.4;
+}
+
+.aprovado {
+    border-color: #2e7d32;
+    background-color: #e8f5e9;
+    color: #1b5e20;
+}
+
+.recuperacao {
+    border-color: #ef8f00;
+    background-color: #fff8e1;
+    color: #7a4b00;
+}
+
+.reprovado {
+    border-color: #c62828;
+    background-color: #ffebee;
+    color: #8e1717;
+}
+
+@media (max-width: 520px) {
+    .container {
+        padding: 22px 16px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
 }
