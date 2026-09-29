@@ -20,11 +20,11 @@ try {
 
 
     );
-    echo "conectado com sucesso"
+    echo "conectado com sucesso";
 
 
 } catch (PDOException $erro) {
-    echo "Erro ao conectar:".erro ->getMessage();
+    echo "Erro ao conectar:".$erro ->getMessage();
 
 
 }
