@@ -1,6 +1,6 @@
 <?php
      require "conexao.php";
-     echo "Meu sistema esta conectado!";
+     echo "<br> Meu sistema esta conectado!";
 
      $sql = " CREAT TABLE IF NOT EXISTS teste (
      id INT AUTO_INCREMENT PRIMARY KEY,
