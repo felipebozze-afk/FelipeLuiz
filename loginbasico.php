@@ -1,6 +1,6 @@
 <?php
 $usuarioCorreto = "felipe";
-$senhaCorreta = "1234";
+$senhaCorreta = "12345";
 $mensagem = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["usuario"], $_POST["senha"])) {
