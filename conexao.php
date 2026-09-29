@@ -9,7 +9,7 @@ $senha = "315!@#";
 // PDO =  php data objects -  é uma ferramenta do php para conversar com banco de dados.
 
 try {
-    $pdo = new PDO("mysql:host = $host;dbname=$banco;charset=utf8mb4",$usuario,$senha);
+    $pdo = new PDO("mysql:host=$host;dbname=$banco;charset=utf8mb4",$usuario,$senha);
    
    //-> serve para puxar algo que pertence aquele objeto
    // PDO::ATTR_ERRMODE - É para configurar o modo de de erros do PDO
