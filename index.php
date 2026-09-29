@@ -27,6 +27,7 @@
 <body>
     <div class="container">
         <h1>Atividades PHP</h1>
+        <p><a href="loginbasico.php">Login básico</a></p>
         <p><a href="idade.php">Verificador de idade</a></p>
         <p><a href="notas.php">Situação do aluno (POST)</a></p>
         <p><a href="notas-get.php">Situação do aluno (GET)</a></p>
