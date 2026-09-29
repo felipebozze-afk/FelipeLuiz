@@ -42,6 +42,8 @@
         <p><a href="idade.php">Verificador de idade</a></p>
         <p><a href="notas.php">Situação do aluno (POST)</a></p>
         <p><a href="notas-get.php">Situação do aluno (GET)</a></p>
+        <p><a href="jogos.php">Cadastro de jogos</a></p>
+        
     </div>
 </body>
 </html>
