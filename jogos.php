@@ -1,39 +1,21 @@
-<?php
+﻿<?php
 require "conexao.php";
-
-$sql = "CREATE TABLE IF NOT EXISTS jogos (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    genero VARCHAR(50) NOT NULL,
-    nota INT NOT NULL,
-    ano_lancamento INT NOT NULL
-)";
-$pdo->exec($sql);
-
-
-$colunas = $pdo->query("SHOW COLUMNS FROM jogos LIKE 'ano_lancamento'");
-if ($colunas->rowCount() === 0) {
-    $pdo->exec("ALTER TABLE jogos ADD ano_lancamento INT NOT NULL DEFAULT 0");
-}
 
 $mensagem = "";
 $erro = "";
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = trim($_POST["nome"] ?? "");
     $genero = trim($_POST["genero"] ?? "");
     $nota = $_POST["nota"] ?? "";
-    $ano_lancamento = $_POST["ano_lancamento"] ?? "";
+    $ano = $_POST["ano_lancamento"] ?? "";
 
-    if ($nome === "" || $genero === "" || !filter_var($nota, FILTER_VALIDATE_INT) ||
-        !filter_var($ano_lancamento, FILTER_VALIDATE_INT)) {
-        $erro = "Preencha todos os campos com valores válidos.";
+    if ($nome == "" || $genero == "" || !is_numeric($nota) || !is_numeric($ano)) {
+        $erro = "Preencha todos os campos corretamente.";
     } else {
-        $nomeSQL = $pdo->quote($nome);
-        $generoSQL = $pdo->quote($genero);
-        $sqlInsert = "INSERT INTO jogos (nome, genero, nota, ano_lancamento)
-                      VALUES ($nomeSQL, $generoSQL, $nota, $ano_lancamento)";
-        $pdo->exec($sqlInsert);
+        $sql = "INSERT INTO jogos (nome, genero, nota, ano_lancamento) VALUES (?, ?, ?, ?)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$nome, $genero, $nota, $ano]);
         $mensagem = "Jogo cadastrado com sucesso!";
     }
 }
@@ -67,11 +49,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <button type="submit">Cadastrar</button>
         </form>
 
-        <?php if ($mensagem !== "") { ?>
-            <p><?php echo htmlspecialchars($mensagem, ENT_QUOTES, "UTF-8"); ?></p>
+        <?php if ($mensagem != "") { ?>
+            <p><?php echo $mensagem; ?></p>
         <?php } ?>
-        <?php if ($erro !== "") { ?>
-            <p><?php echo htmlspecialchars($erro, ENT_QUOTES, "UTF-8"); ?></p>
+
+        <?php if ($erro != "") { ?>
+            <p><?php echo $erro; ?></p>
         <?php } ?>
     </div>
 </body>
