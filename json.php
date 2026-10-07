@@ -11,8 +11,8 @@ $alunos = json_decode($json, true);
 
 // 4. CRIAR UM ALUNO
 $novoAluno = [
-    "nome" => "Lucas",
-    "idade" => 23,
+    "nome" => "Felipe",
+    "idade" => 37,
     "curso" => "Desenvolvimento de Sistemas"
 ];
 
