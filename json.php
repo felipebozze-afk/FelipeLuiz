@@ -3,17 +3,24 @@
 // 1. DECLARAR O CAMINHO DO ARQUIVO JSON
 $caminho = __DIR__ . "/dados.json";
 
-// 2. ABRIR/LER O ARQUIVO JSON
-$json = file_get_contents($caminho);
+// 2. ABRIR/LER O ARQUIVO JSON (CRIA UM VAZIO SE NÃO EXISTIR)
+$json = file_exists($caminho) ? file_get_contents($caminho) : '[]';
 
 // 3. TRANSFORMAR JSON EM ARRAY PHP
 $alunos = json_decode($json, true);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (!is_array($alunos)) {
+    $alunos = [];
+}
+
+$acao = $_POST["acao"] ?? "";
+
+// CADASTRAR NOVO ALUNO
+if ($acao === "cadastrar") {
 
     // 4. CRIAR UM ALUNO
     $novoAluno = [
-        "nome" => $_POST["nome"],
+        "nome"  => $_POST["nome"],
         "idade" => $_POST["idade"],
         "curso" => $_POST["curso"]
     ];
@@ -31,6 +38,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     file_put_contents($caminho, $jsonAtualizado);
 
     echo "DADOS REGISTRADOS EM dados.json";
+
+// ATUALIZAR ALUNO EXISTENTE
+} elseif ($acao === "atualizar") {
+
+    // PEGAR OS DADOS DO FORMULÁRIO
+    $nome = $_POST["nome"];
+    $novaIdade = $_POST["idade"];
+    $novoCurso = $_POST["curso"];
+
+    // PERCORRER TODOS OS ALUNOS
+    foreach ($alunos as $posicao => $aluno) {
+        if ($aluno["nome"] == $nome) {
+            $alunos[$posicao]["idade"] = $novaIdade;
+            $alunos[$posicao]["curso"] = $novoCurso;
+        }
+    }
+
+    // SALVAR AS ALTERAÇÕES NO ARQUIVO JSON
+    $jsonAtualizado = json_encode(
+        $alunos,
+        JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+    );
+
+    file_put_contents($caminho, $jsonAtualizado);
+
+    echo "DADOS ATUALIZADOS EM dados.json";
 }
 
 ?>
@@ -46,6 +79,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
+    <h2>CADASTRAR ALUNO</h2>
+
     <form method="POST">
 
         <label>Nome:</label>
@@ -57,20 +92,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label>Curso:</label>
         <input type="text" name="curso" required>
 
-        <button type="submit">Cadastrar</button>
+        <button type="submit" name="acao" value="cadastrar">
+            Cadastrar
+        </button>
 
     </form>
+
     <h2>ALUNOS CADASTRADOS</h2>
 
-<?php foreach ($alunos as $aluno) { ?>
+    <?php foreach ($alunos as $aluno) { ?>
 
-    <h3><?= $aluno["nome"] ?></h3>
-    <p>Idade: <?= $aluno["idade"] ?></p>
-    <p>Curso: <?= $aluno["curso"] ?></p>
+        <form method="POST" style="margin-bottom: 15px;">
+            <input type="hidden" name="nome" value="<?= $aluno["nome"] ?>">
 
-<?php } ?>
+            <h3><?= $aluno["nome"] ?></h3>
 
+            <label>Idade:</label>
+            <input type="number" name="idade" value="<?= $aluno["idade"] ?>" required>
 
+            <label>Curso:</label>
+            <input type="text" name="curso" value="<?= $aluno["curso"] ?>" required>
+
+            <button type="submit" name="acao" value="atualizar">
+                Atualizar
+            </button>
+        </form>
+
+    <?php } ?>
 
 </body>
 
