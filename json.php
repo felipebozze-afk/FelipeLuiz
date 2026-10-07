@@ -9,60 +9,61 @@ $json = file_get_contents($caminho);
 // 3. TRANSFORMAR JSON EM ARRAY PHP
 $alunos = json_decode($json, true);
 
-// 4. CRIAR UM ALUNO
-$novoAluno = [
-    "nome" => "Felipe",
-    "idade" => 37,
-    "curso" => "Desenvolvimento de Sistemas"
-];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-//5. ADICIONAR O ALUNO NO ARRAY
-$alunos[] = $novoAluno;
+    // 4. CRIAR UM ALUNO
+    $novoAluno = [
+        "nome" => $_POST["nome"],
+        "idade" => $_POST["idade"],
+        "curso" => $_POST["curso"]
+    ];
 
-//6. TRANSFORMAR ARRAY PHP EM JSON
-$jsonAtualizado = json_encode($alunos,
-    JSON_PRETTY_PRINT|
-    JSON_UNESCAPED_UNICODE
-);
+    // 5. ADICIONAR O ALUNO NO ARRAY
+    $alunos[] = $novoAluno;
 
-//7.SALVAR NO ARQUIVO
-file_put_contents($caminho,$jsonAtualizado);
+    // 6. TRANSFORMAR ARRAY PHP EM JSON
+    $jsonAtualizado = json_encode(
+        $alunos,
+        JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+    );
 
-echo "DADOS REGISTRADOS EM dados.json";
+    // 7. SALVAR NO ARQUIVO
+    file_put_contents($caminho, $jsonAtualizado);
+
+    echo "DADOS REGISTRADOS EM dados.json";
+}
 
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastro de Alunos</title>
 </head>
+
 <body>
+
+    <form method="POST">
+
+        <label>Nome:</label>
+        <input type="text" name="nome" required>
+
+        <label>Idade:</label>
+        <input type="number" name="idade" required>
+
+        <label>Curso:</label>
+        <input type="text" name="curso" required>
+
+        <button type="submit">Cadastrar</button>
+
+    </form>
+
+
     
+
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
