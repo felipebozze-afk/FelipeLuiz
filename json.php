@@ -64,6 +64,31 @@ if ($acao === "cadastrar") {
     file_put_contents($caminho, $jsonAtualizado);
 
     echo "DADOS ATUALIZADOS EM dados.json";
+
+// DELETAR CADASTRO
+} elseif ($acao === "deletar") {
+
+    $nome = $_POST["nome"];
+
+    // PERCORRER E REMOVER O ALUNO
+    foreach ($alunos as $posicao => $aluno) {
+        if ($aluno["nome"] == $nome) {
+            unset($alunos[$posicao]);
+        }
+    }
+
+    // REINDEXAR O ARRAY
+    $alunos = array_values($alunos);
+
+    // SALVAR AS ALTERAÇÕES NO ARQUIVO JSON
+    $jsonAtualizado = json_encode(
+        $alunos,
+        JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+    );
+
+    file_put_contents($caminho, $jsonAtualizado);
+
+    echo "DADOS DELETADOS EM dados.json";
 }
 
 ?>
@@ -94,6 +119,19 @@ if ($acao === "cadastrar") {
 
         <button type="submit" name="acao" value="cadastrar">
             Cadastrar
+        </button>
+
+    </form>
+
+    <h2>DELETAR CADASTRO</h2>
+
+    <form method="POST">
+
+        <label>Nome:</label>
+        <input type="text" name="nome" required>
+
+        <button type="submit" name="acao" value="deletar">
+            Deletar
         </button>
 
     </form>
