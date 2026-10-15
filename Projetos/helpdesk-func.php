@@ -1,16 +1,11 @@
-﻿<?php
+<?php
 
 // READ - Ler todos os chamados
 function lerChamados(): array
 {
-    $pasta = __DIR__ . '/../dados';
-    $arquivo = $pasta . '/chamados.json';
+    $arquivo = __DIR__ . '/dados.json';
 
-    if (!is_dir($pasta)) {
-        mkdir($pasta, 0777, true);
-    }
-
-    // Cria o arquivo JSON se ele ainda não existir
+// Cria o arquivo JSON se ele ainda não existir
     if (!file_exists($arquivo)) {
         file_put_contents($arquivo, '[]');
     }
@@ -24,7 +19,7 @@ function lerChamados(): array
 // SAVE - Salvar os chamados no JSON
 function salvarChamados(array $chamados): bool
 {
-    $arquivo = __DIR__ . '/../dados/chamados.json';
+    $arquivo = __DIR__ . '/dados.json';
     $json = json_encode($chamados, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
     return $json !== false && file_put_contents($arquivo, $json) !== false;
