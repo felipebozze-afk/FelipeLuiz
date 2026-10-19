@@ -66,4 +66,36 @@ IF ($metodo === 'POST') {
 header('Allow: GET,POST');
 http_response_code(405);
 
+// COMANDOS NA VPS PARA TESTAR:
+// curl -i -X GET https://felipeb315.devlook.xyz/projetos/api/api-teste.php
+
+// curl -i -X POST https://felipeb315.devlook.xyz/projetos/api/api-teste.php \
+//   -H "Content-Type: application/json" -d '{"titulo":"Impressora com defeito"}'
+
+// curl -i -X POST https://felipeb315.devlook.xyz/projetos/api/api-teste.php \
+//   -H "Content-Type: application/json" -d '{"titulo":""}'
+
+// curl -i -X POST https://felipeb315.devlook.xyz/projetos/api/api-teste.php \
+//   -H "Content-Type: application/json" -d '{"descricao":"Computador não liga"}'
+
+// curl -i -X POST https://felipeb315.devlook.xyz/projetos/api/api-teste.php \
+//   -H "Content-Type: application/json" -d '{"titulo":3}'
+
+// curl -i -X POST https://felipeb315.devlook.xyz/projetos/api/api-teste.php \
+//   -H "Content-Type: application/json" -d '{"titulo":null}'
+
+// curl -i -X DELETE https://felipeb315.devlook.xyz/projetos/api/api-teste.php
+
+// curl -i -X GET https://felipeb315.devlook.xyz/projetos/api/arquivo-inexistente.php
+
+/*
+    Parâmetro    Significado
+    -i           Mostra os headers e o status da resposta
+    -X GET       Define o método GET
+    -X POST      Define o método POST
+    -X DELETE    Define o método DELETE
+    -H           Adiciona um header HTTP
+    -d           Envia dados no corpo da requisição
+*/
+
 ?>
