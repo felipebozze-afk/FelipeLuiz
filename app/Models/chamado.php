@@ -40,7 +40,7 @@ public function cadastrarChamados(string $nome, string $setor, string $equipamen
         return false;
     }
 
-    $chamados = lerChamados();
+    $chamados = $this->lerChamados();
     $chamados[] = [
         'nome' => $nome,
         'setor' => $setor,
@@ -50,13 +50,13 @@ public function cadastrarChamados(string $nome, string $setor, string $equipamen
         'status' => 'Aberto'
     ];
 
-    return salvarChamados($chamados);
+    return $this->salvarChamados($chamados);
 }
 
 // UPDATE - Atualizar status do chamado
 public function atualizarChamado(int $numero, string $novoStatus): bool
 {
-    $chamados = lerChamados();
+    $chamados = $this->lerChamados();
     $statusValidos = ['Aberto', 'Em andamento', 'Resolvido'];
 
     if (!isset($chamados[$numero]) || !in_array($novoStatus, $statusValidos, true)) {
@@ -64,20 +64,20 @@ public function atualizarChamado(int $numero, string $novoStatus): bool
     }
 
     $chamados[$numero]['status'] = $novoStatus;
-    return salvarChamados($chamados);
+    return $this->salvarChamados($chamados);
 }
 
 // DELETE - Excluir chamado
 public function excluirChamado(int $numero): bool
 {
-    $chamados = lerChamados();
+    $chamados = $this->lerChamados();
 
     if (!isset($chamados[$numero])) {
         return false;
     }
 
     array_splice($chamados, $numero, 1);
-    return salvarChamados($chamados);
+    return $this->salvarChamados($chamados);
 }
 
 // Contar chamados por status
@@ -85,7 +85,7 @@ public function contarChamados(): array
 {
     $quantidades = ['total' => 0, 'abertos' => 0, 'andamento' => 0, 'resolvidos' => 0];
 
-    foreach (lerChamados() as $chamado) {
+    foreach ($this->lerChamados() as $chamado) {
         $quantidades['total']++;
 
         if (($chamado['status'] ?? '') === 'Aberto') {
