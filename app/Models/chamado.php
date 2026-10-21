@@ -1,7 +1,7 @@
 <?php
 
-// READ - Ler todos os chamados
-function lerChamados(): array
+class Chamado{// READ - Ler todos os chamados
+public function lerChamados(): array
 {
     $arquivo = __DIR__ . '/dados.json';
 
@@ -17,7 +17,7 @@ function lerChamados(): array
 }
 
 // SAVE - Salvar os chamados no JSON
-function salvarChamados(array $chamados): bool
+public function salvarChamados(array $chamados): bool
 {
     $arquivo = __DIR__ . '/dados.json';
     $json = json_encode($chamados, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
@@ -26,7 +26,7 @@ function salvarChamados(array $chamados): bool
 }
 
 // CREATE - Cadastrar chamado
-function cadastrarChamados(string $nome, string $setor, string $equipamento, string $descricao, string $prioridade): bool
+public function cadastrarChamados(string $nome, string $setor, string $equipamento, string $descricao, string $prioridade): bool
 {
     $setores = ['Produção', 'Administrativo', 'Logística', 'Financeiro', 'TI'];
     $equipamentos = ['Computador', 'Impressora', 'Rede', 'Sistema', 'Outro'];
@@ -54,7 +54,7 @@ function cadastrarChamados(string $nome, string $setor, string $equipamento, str
 }
 
 // UPDATE - Atualizar status do chamado
-function atualizarChamado(int $numero, string $novoStatus): bool
+public function atualizarChamado(int $numero, string $novoStatus): bool
 {
     $chamados = lerChamados();
     $statusValidos = ['Aberto', 'Em andamento', 'Resolvido'];
@@ -68,7 +68,7 @@ function atualizarChamado(int $numero, string $novoStatus): bool
 }
 
 // DELETE - Excluir chamado
-function excluirChamado(int $numero): bool
+public function excluirChamado(int $numero): bool
 {
     $chamados = lerChamados();
 
@@ -81,7 +81,7 @@ function excluirChamado(int $numero): bool
 }
 
 // Contar chamados por status
-function contarChamados(): array
+public function contarChamados(): array
 {
     $quantidades = ['total' => 0, 'abertos' => 0, 'andamento' => 0, 'resolvidos' => 0];
 
@@ -99,3 +99,15 @@ function contarChamados(): array
 
     return $quantidades;
 }
+
+
+
+
+  
+}
+
+
+
+
+
+?>
