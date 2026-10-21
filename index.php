@@ -1,49 +1,28 @@
 <?php
-     require "conexao.php";
-     echo "<br> Meu sistema esta conectado!";
+    //Carregando o arquivo de rotas e guardando o valor retornado por ele na variável $rotas
 
-     $sql = "CREATE TABLE IF NOT EXISTS teste (
-     id INT AUTO_INCREMENT PRIMARY KEY,
-     nome VARCHAR(100),
-     idade INT
-    )";
+    $rotas = require __DIR__ . "/routes/web.php";
+
+    //se a rota estiver vazia, vai direcionar automaticamente para o portifolio.
+    $rota = $_GET['rota'] ?? 'portfolio';
+
+    //Definindo a varíavel de verificação de método HTTP requisitado.
+    $metodo = $_SERVER['REQUEST_METHOD'];
+
+    //Verificando se a rota existe , se não existir, define status 404.
+    if (!isset($rotas[$metodo][$rota])) {
+        http_response_code(404);
+        echo "Página não encontrada";
+        exit;
+    }
+
+    //
+    [$controller, $acao] = $rotas[$metodo][$rota];
+
+    //
+    $controller->$acao;
 
 
-    $pdo->exec($sql);
-    echo "<br>tabela criada com sucesso!";
 
-    $sqlJogos = "CREATE TABLE IF NOT EXISTS jogos (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        nome VARCHAR(100),
-        genero VARCHAR(50),
-        nota INT,
-        ano_lancamento INT
-    )";
-
-    $pdo->exec($sqlJogos);
-    echo "<br>tabela jogos criada com sucesso!";
 
 ?>
-
-
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css?v=2">
-    <title>Atividades PHP</title>
-</head>
-<body>
-    <div class="container">
-        <h1>Atividades PHP</h1>
-        <p><a href="loginbasico.php">Login básico</a></p>
-        <p><a href="idade.php">Verificador de idade</a></p>
-        <p><a href="notas.php">Situação do aluno (POST)</a></p>
-        <p><a href="notas-get.php">Situação do aluno (GET)</a></p>
-        <p><a href="jogos.php">Cadastro de jogos</a></p>
-        
-    </div>
-</body>
-</html>
