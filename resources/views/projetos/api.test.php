@@ -79,7 +79,7 @@ http_response_code(405);
 //   -H "Content-Type: application/json" -d '{"descricao":"Computador não liga"}'
 
 // curl -i -X POST https://felipeb315.devlook.xyz/projetos/api/api-teste.php \
-//   -H "Content-Type: application/json" -d '{"titulo":3}'
+//   -H "Content-Type: application/json" -d '{"titulo":3}'  .
 
 // curl -i -X POST https://felipeb315.devlook.xyz/projetos/api/api-teste.php \
 //   -H "Content-Type: application/json" -d '{"titulo":null}'
