@@ -56,7 +56,7 @@
     </main>
 
     <footer>
-        Desenvolvido por: <a href="https://felipeb315.devlook.xyz/">Felipe Fermino</a> 2026
+        Desenvolvido por: <a href="https://felipeb315.devlook.xyz/">Felipe </a> 2026
     </footer>
 </body>
 </html>
