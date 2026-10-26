@@ -1,32 +1,3 @@
-<?php
-     require __DIR__ . "/../../config/conexao.php";
-     echo "<br> Meu sistema esta conectado!";
-
-     $sql = "CREATE TABLE IF NOT EXISTS teste (
-     id INT AUTO_INCREMENT PRIMARY KEY,
-     nome VARCHAR(100),
-     idade INT
-    )";
-
-
-    $pdo->exec($sql);
-    echo "<br>tabela criada com sucesso!";
-
-    $sqlJogos = "CREATE TABLE IF NOT EXISTS jogos (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        nome VARCHAR(100),
-        genero VARCHAR(50),
-        nota INT,
-        ano_lancamento INT
-    )";
-
-    $pdo->exec($sqlJogos);
-    echo "<br>tabela jogos criada com sucesso!";
-
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -74,4 +45,5 @@
 </main>
 </body>
 </html>
+
 
