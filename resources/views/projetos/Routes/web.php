@@ -1,39 +1,41 @@
 <?php
 
-    require_once __DIR__ . '/../../../../app/Http/Controllers/HelpdeskController.php';
-    require_once __DIR__ . '/../../../../app/Http/Controllers/PortifolioController.php';
+require_once __DIR__ . '/../../../../app/Http/Controllers/HelpdeskController.php';
+require_once __DIR__ . '/../../../../app/Http/Controllers/PortifolioController.php';
 
-    //Listando em arrays
+$portfolioController = new PortfolioController();
+$helpdeskController = new HelpdeskController();
 
-    return [
-        'GET' =>[
-            'portfolio' => [new PortfolioController(), 'index'],
-            'helpdesk' => [new HelpdeskController(), 'index'],
-            'loginbasico' => [new PortfolioController(), 'loginbasico'],
-            'idade' => [new PortfolioController(), 'idade'],
-            'notas' => [new PortfolioController(), 'notas'],
-            'notas-get' => [new PortfolioController(), 'notasGet'],
-            'jogos' => [new PortfolioController(), 'jogos'],
-
-        ],
-        'POST' => [
-            'helpdesk' => [new HelpdeskController(), 'index'],
-            'portfolio' => [new PortfolioController(), 'index'],
-            
-        ]
-      
-
-
-    ];
-
-
-
-
-
-
-
-
-
-
-
-?>
+return [
+    'portifolio' => [
+        'GET' => [$portfolioController, 'index'],
+        'POST' => [$portfolioController, 'index'],
+    ],
+    'portfolio' => [
+        'GET' => [$portfolioController, 'index'],
+        'POST' => [$portfolioController, 'index'],
+    ],
+    'helpdesk' => [
+        'GET' => [$helpdeskController, 'index'],
+        'POST' => [$helpdeskController, 'index'],
+    ],
+    'jogos' => [
+        'GET' => [$portfolioController, 'jogos'],
+        'POST' => [$portfolioController, 'jogos'],
+    ],
+    'loginbasico' => [
+        'GET' => [$portfolioController, 'loginbasico'],
+        'POST' => [$portfolioController, 'loginbasico'],
+    ],
+    'notas' => [
+        'GET' => [$portfolioController, 'notas'],
+        'POST' => [$portfolioController, 'notas'],
+    ],
+    'notas-get' => [
+        'GET' => [$portfolioController, 'notasGet'],
+    ],
+    'idade' => [
+        'GET' => [$portfolioController, 'idade'],
+        'POST' => [$portfolioController, 'idade'],
+    ],
+];
