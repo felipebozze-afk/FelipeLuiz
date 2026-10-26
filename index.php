@@ -1,7 +1,7 @@
 <?php
     //Carregando o arquivo de rotas e guardando o valor retornado por ele na variável $rotas
 
-    $rotas = require __DIR__ . "/routes/web.php";
+    $rotas = require __DIR__ . "/resources/views/projetos/Routes/web.php";
 
     //se a rota estiver vazia, vai direcionar automaticamente para o portifolio.
     $rota = $_GET['rota'] ?? 'portfolio';

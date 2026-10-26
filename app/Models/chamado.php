@@ -3,7 +3,7 @@
 class Chamado{// READ - Ler todos os chamados
 public function lerChamados(): array
 {
-    $arquivo = __DIR__ . '/dados.json';
+    $arquivo = dirname(__DIR__, 2) . '/storage/data/dados.json';
 
 // Cria o arquivo JSON se ele ainda não existir
     if (!file_exists($arquivo)) {
@@ -19,7 +19,7 @@ public function lerChamados(): array
 // SAVE - Salvar os chamados no JSON
 public function salvarChamados(array $chamados): bool
 {
-    $arquivo = __DIR__ . '/dados.json';
+    $arquivo = dirname(__DIR__, 2) . '/storage/data/dados.json';
     $json = json_encode($chamados, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
     return $json !== false && file_put_contents($arquivo, $json) !== false;
