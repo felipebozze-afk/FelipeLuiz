@@ -40,7 +40,7 @@ footer { padding:28px 16px; color:var(--muted); text-align:center; }
 @media(max-width:760px) { .navbar { align-items:flex-start; flex-direction:column; gap:8px; } .menu { flex-wrap:wrap; gap:8px 16px; } .foto { width:120px; height:120px; flex-basis:120px; } .projetos-container { grid-template-columns:repeat(2,minmax(0,1fr)); } .secao { padding:26px 20px; } }
 @media(max-width:520px) { main { padding:0 16px; } .inicio { min-height:0; padding:50px 0; } .foto { display:none; } .projetos-container { grid-template-columns:1fr; } }
 </style>
-    <title>Felipe Fermino | Portfólio</title>
+    <title>Felipe  | Portfólio</title>
 </head>
 <body>
     <header>
@@ -59,7 +59,7 @@ footer { padding:28px 16px; color:var(--muted); text-align:center; }
         <section id="inicio" class="inicio">
             <div class="inicio-conteudo">
                 <p class="saudacao">Olá, eu sou </p>
-                <h1>Felipe Fermino</h1>
+                <h1>Felipe </h1>
                 <h2>Desenvolvedor em Formação</h2>
                 <p></p>
                 <a href="#projetos" class="botao">
