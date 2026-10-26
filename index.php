@@ -1,28 +1,24 @@
-<?php
-    //Carregando o arquivo de rotas e guardando o valor retornado por ele na variável $rotas
+<?php 
 
-    $rotas = require __DIR__ . "/resources/views/projetos/Routes/web.php";
+    // carregando arquivo de rotas
+    $rotas = require __DIR__ . "/routes/web.php";
 
-    //se a rota estiver vazia, vai direcionar automaticamente para o portifolio.
-    $rota = $_GET['rota'] ?? 'portfolio';
+    // se a rota estiver vazia, vai direto pro portifolio
+    $rota = $_GET['rota'] ?? 'portifolio';
 
-    //Definindo a varíavel de verificação de método HTTP requisitado.
+    // definindo a variavel de verificação do metodo http requisitado
     $metodo = $_SERVER['REQUEST_METHOD'];
 
-    //Verificando se a rota existe , se não existir, define status 404.
-    if (!isset($rotas[$metodo][$rota])) {
+    // verifica se a rota existe , se n existe define erro 404
+    if(!isset($rotas[$rota][$metodo])){
         http_response_code(404);
         echo "Página não encontrada";
         exit;
-    }
+    };
 
-    //
-    [$controller, $acao] = $rotas[$metodo][$rota];
+    // 
+    [$controller, $acao] = $rotas[$rota][$metodo];
 
-    //
-    $controller->$acao();
-
-
-
-
+    // 
+    $controller -> $acao();
 ?>
