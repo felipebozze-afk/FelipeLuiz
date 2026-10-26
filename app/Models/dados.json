@@ -1,0 +1,10 @@
+[
+    {
+        "nome": "Teste funcional",
+        "setor": "TI",
+        "equipamento": "Sistema",
+        "descricao": "Chamado criado durante a validacao funcional.",
+        "prioridade": "Alta",
+        "status": "Aberto"
+    }
+]
