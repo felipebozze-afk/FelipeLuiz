@@ -1,5 +1,7 @@
 ﻿<?php
-require "conexao.php";
+require __DIR__ . "/../../config/conexao.php";
+$sqlJogos = "CREATE TABLE IF NOT EXISTS jogos (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(100), genero VARCHAR(50), nota INT, ano_lancamento INT)";
+$pdo->exec($sqlJogos);
 
 $mensagem = "";
 $erro = "";
@@ -59,3 +61,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </body>
 </html>
+
