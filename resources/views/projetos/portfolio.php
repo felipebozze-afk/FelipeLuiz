@@ -1,5 +1,5 @@
 <?php
-     require "conexao.php";
+     require __DIR__ . "/../../config/conexao.php";
      echo "<br> Meu sistema esta conectado!";
 
      $sql = "CREATE TABLE IF NOT EXISTS teste (
@@ -74,3 +74,4 @@
 </main>
 </body>
 </html>
+
