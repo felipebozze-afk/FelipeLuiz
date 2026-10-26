@@ -14,6 +14,8 @@
         ],
         'POST' => [
             'helpdesk' => [new HelpdeskController(), '' ],
+            'portfolio' =>[new PortfolioController (),'index'],
+            
         ]
       
 
