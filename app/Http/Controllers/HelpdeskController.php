@@ -7,14 +7,3 @@ class HelpdeskController
         require __DIR__ . '/../../../resources/views/projetos/helpdesk.php';
     }
 }
-
-
-
-
-
-
-
-
-
-
-?>

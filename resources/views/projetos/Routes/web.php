@@ -3,17 +3,15 @@
 require_once __DIR__ . '/../../../../app/Http/Controllers/HelpdeskController.php';
 require_once __DIR__ . '/../../../../app/Http/Controllers/PortifolioController.php';
 
-$portfolioController = new PortfolioController();
+$portfolioController = new PortifolioController();
 $helpdeskController = new HelpdeskController();
 
 return [
     'portifolio' => [
         'GET' => [$portfolioController, 'index'],
-        'POST' => [$portfolioController, 'index'],
     ],
     'portfolio' => [
         'GET' => [$portfolioController, 'index'],
-        'POST' => [$portfolioController, 'index'],
     ],
     'helpdesk' => [
         'GET' => [$helpdeskController, 'index'],

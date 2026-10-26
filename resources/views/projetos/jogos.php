@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require __DIR__ . "/../../config/conexao.php";
 $sqlJogos = "CREATE TABLE IF NOT EXISTS jogos (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(100), genero VARCHAR(50), nota INT, ano_lancamento INT)";
 $pdo->exec($sqlJogos);
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css?v=2">
+    <link rel="stylesheet" href="/resources/css/index.css?v=2">
     <title>Cadastro de jogos</title>
 </head>
 <body>

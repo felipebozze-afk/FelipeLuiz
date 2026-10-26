@@ -1,6 +1,6 @@
 <?php
 
-class PortfolioController
+class PortifolioController
 {
     public function index()
     {
@@ -32,4 +32,3 @@ class PortfolioController
         require __DIR__ . '/../../../resources/views/projetos/jogos.php';
     }
 }
-?>
