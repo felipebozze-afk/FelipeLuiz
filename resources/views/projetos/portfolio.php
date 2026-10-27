@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/../fermino/resources/css/index.css">
+    <link rel="stylesheet" href="/../FELIPELUIZ/resources/css/index.css">
     <title>Atividades DS</title>
 </head>
 <body>
@@ -181,7 +181,7 @@
     
     <footer>
             <p>
-                Desenvolvido por: <a href="https://felipeb315.devlook.xyz/">Felipe Fermino</a> 2026
+                Desenvolvido por: <a href="https://felipeb315.devlook.xyz/">Felipe Luiz</a> 2026
             </p>
         </footer>
 </body>
