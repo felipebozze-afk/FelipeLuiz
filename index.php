@@ -1,10 +1,10 @@
 <?php
 
     // carregando arquivo de rotas
-    $rotas = require __DIR__ . "../Routes/web.php";
+    $rotas = require __DIR__ . "/../routes/web.php";
 
     // se a rota estiver vazia, vai direto pro portifolio
-    $rota = $_GET['rota'] ?? 'portifolio';
+    $rota = $_GET['rota'] ?? 'portfolio';
 
     // definindo a variavel de verificação do metodo http requisitado
     $metodo = $_SERVER['REQUEST_METHOD'];
