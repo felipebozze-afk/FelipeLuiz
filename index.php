@@ -17,7 +17,7 @@
     };
 
     //
-    [$controller, $acao] = $rotas[$rota][$metodo];
+    [$controller, $acao] = $rotas[$metodo][$rota];
 
     //
     $controller -> $acao();
