@@ -33,6 +33,24 @@ $lucas = new Personagem("Lucas", 100, 10);
 $aurora = new Personagem("Aurora", 50, 5);
 $chloe = new Personagem("Chloe", 30, 3);
 
+$lucas->atacar();
+
+
+
+
+class Guerreiro extends Personagem {
+    public function defender() {
+        echo "$this->nome levantou o escudo!";
+    }
+}
+
+$guerreiro = new Guerreiro("Lucas", 100, 10);
+
+$guerreiro->atacar();// metodo herdado
+$guerreiro->defender();// metodo própio
+
+
+
 
 
 
