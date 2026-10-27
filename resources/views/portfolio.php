@@ -11,11 +11,11 @@
         <nav class="navbar">
             <h2 class="logo">Meu Portifólio</h2>
             <ul class="menu">
-                <li><a href="#inicio"></a>Início</li>
-                <li><a href="#sobre"></a>Sobre</li>
-                <li><a href="#habilidades"></a>Habilidades</li>
-                <li><a href="#projetos"></a>Projetos</li>
-                <li><a href="#contato"></a>Contato</li>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
     </header>
@@ -73,93 +73,58 @@
         </section>
         
         <section id="projetos" class="secao">
-        <h2 class="titulo-secao">Minhas Habilidades</h2>
+            <h2 class="titulo-secao">Meus Projetos</h2>
             <p class="subtitulo-secao">
-                Alguns peojetos desenvolvidos durante as aulas: 
+                Alguns projetos desenvolvidos durante as aulas:
             </p>
             <div class="peojetos-container">
                 <div class="projeto-card">
-                    <div class="projeto-numero">
-                        01
-                    </div>
+                    <div class="projeto-numero">01</div>
                     <h3>Verificação de Idade</h3>
-                    <p>
-                        Sistema desenvolvido para praticar
-                        formulários e manipulação de dados.
-                    </p>
+                    <p>Sistema desenvolvido para praticar formulários e manipulação de dados.</p>
                     <div class="tecnologias">
                         <span>HTML</span>
                         <span>CSS</span>
                         <span>PHP</span>
                     </div>
-                    <a href="../Projeto/idade.php" class="link-projeto">
-                        Ver Projeto:
-                    </a>
-                    </div>
+                    <a href="../Projeto/idade.php" class="link-projeto">Ver projeto</a>
+                </div>
 
-                    <div class="peojetos-container">
-                        <div class="projeto-card">
-                        <div class="projeto-numero">
-                            02
-                        </div>
-
-                        <h3>Login Básico</h3>
-                        <p>
-                            Sistema desenvolvido para praticar
-                            inserção de dados.
-                        </p>
-                        <div class="tecnologias">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>PHP</span>
-                        </div>
-                        <a href="../resources/views/Projeto/login-basico.php" class="link-projeto">
-                        Ver Projeto:
-                        </a>
+                <div class="projeto-card">
+                    <div class="projeto-numero">02</div>
+                    <h3>Login Básico</h3>
+                    <p>Sistema desenvolvido para praticar inserção e validação de dados.</p>
+                    <div class="tecnologias">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>PHP</span>
                     </div>
+                    <a href="../resources/views/Projeto/login-basico.php" class="link-projeto">Ver projeto</a>
+                </div>
 
-                    <div class="peojetos-container">
-                        <div class="projeto-card">
-                        <div class="projeto-numero">
-                            02
-                        </div>
-                        <h3>Teste Json</h3>
-                        <p>
-                            Sistema desenvolvido para praticar
-                            inserção de dados em banco de dados e manipulação de dados.
-                        </p>
-                        <div class="tecnologias">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>PHP</span>
-                            <span>MySQL</span>
-                        </div>
-                        <a href="../resources/views/Projeto/json.php" class="link-projeto">
-                            Ver Projeto:
-                        </a>
+                <div class="projeto-card">
+                    <div class="projeto-numero">03</div>
+                    <h3>Teste JSON</h3>
+                    <p>Sistema desenvolvido para praticar inserção e manipulação de dados.</p>
+                    <div class="tecnologias">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>PHP</span>
+                        <span>MySQL</span>
                     </div>
+                    <a href="../resources/views/Projeto/json.php" class="link-projeto">Ver projeto</a>
+                </div>
 
-                    <div class="peojetos-container">
-                        <div class="projeto-card">
-                        <div class="projeto-numero">
-                            03
-                        </div>
-                        <h3>Notas</h3>
-                        <p>
-                            Sistema desenvolvido para praticar
-                            manipulação de informações e formularios.
-                        </p>
-                        <div class="tecnologias">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>PHP</span>
-                        </div>
-                        <a href="../Projeto/notas.php" class="link-projeto">
-                            Ver Projeto:
-                        </a>
-                        </div>
-                        </div>
+                <div class="projeto-card">
+                    <div class="projeto-numero">04</div>
+                    <h3>Notas</h3>
+                    <p>Sistema desenvolvido para praticar manipulação de informações e formulários.</p>
+                    <div class="tecnologias">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>PHP</span>
                     </div>
+                    <a href="../Projeto/notas.php" class="link-projeto">Ver projeto</a>
                 </div>
             </div>
         </section>
@@ -171,8 +136,7 @@
                 </p>
                 <div class="contato-container">
                     <div class="contato-item">
-                        <h3>Github link: <a href="https://github.com/felipebozze-afk
-"></a></h3>
+                        <h3><a href="https://github.com/felipebozze-afk" target="_blank" rel="noopener noreferrer">Visitar meu GitHub</a></h3>
                         <p></p>
                     </div>
                 </div>
