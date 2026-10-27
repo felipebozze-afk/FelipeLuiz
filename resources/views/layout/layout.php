@@ -14,10 +14,10 @@
             </h2>
             <ul class="menu">
                 <li>
-                    <a href="../index.php"> Início </a>
+                    <a href="/index.php"> Início </a>
                 </li>
                 <li>
-                    <a href="../index.php#projetos"> Projetos </a>
+                    <a href="/index.php#projetos"> Projetos </a>
                 </li>
             </ul>
         </nav>
@@ -51,7 +51,7 @@
         </section>
 
         <div class="voltar-projeto">
-            <a href="../index.php#projetos">Voltar para os Projetos</a>
+            <a href="/index.php#projetos">Voltar para os Projetos</a>
         </div>
     </main>
 

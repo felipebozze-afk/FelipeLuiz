@@ -87,7 +87,7 @@
                         <span>CSS</span>
                         <span>PHP</span>
                     </div>
-                    <a href="../Projeto/idade.php" class="link-projeto">Ver projeto</a>
+                    <a href="index.php?rota=idade" class="link-projeto">Ver projeto</a>
                 </div>
 
                 <div class="projeto-card">
@@ -99,7 +99,7 @@
                         <span>CSS</span>
                         <span>PHP</span>
                     </div>
-                    <a href="../resources/views/Projeto/login-basico.php" class="link-projeto">Ver projeto</a>
+                    <a href="index.php?rota=loginbasico" class="link-projeto">Ver projeto</a>
                 </div>
 
                 <div class="projeto-card">
@@ -112,7 +112,7 @@
                         <span>PHP</span>
                         <span>MySQL</span>
                     </div>
-                    <a href="../resources/views/Projeto/json.php" class="link-projeto">Ver projeto</a>
+                    <a href="index.php?rota=json" class="link-projeto">Ver projeto</a>
                 </div>
 
                 <div class="projeto-card">
@@ -124,7 +124,7 @@
                         <span>CSS</span>
                         <span>PHP</span>
                     </div>
-                    <a href="../Projeto/notas.php" class="link-projeto">Ver projeto</a>
+                    <a href="index.php?rota=notas" class="link-projeto">Ver projeto</a>
                 </div>
             </div>
         </section>

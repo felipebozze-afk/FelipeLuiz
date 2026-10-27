@@ -1,4 +1,4 @@
-//Programação orientada a objetos//
+
 <?php
 // ENCAPSULAMENTO
 // Proteger informações para que não sejam alteradas de qualquer jeito.
@@ -93,7 +93,7 @@ $mago->atacar();// metodo herdado do personagem
 
 
 
-
+//https://felipeb315.devlook.xyz/views/projetos/poo.php
 
 
 //1. O que é uma classe?
