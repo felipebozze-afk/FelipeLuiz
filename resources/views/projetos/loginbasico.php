@@ -1,41 +1,59 @@
-<?php
-$usuarioCorreto = "felipe";
-$senhaCorreta = "12345";
-$mensagem = "";
+<?php 
 
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["usuario"], $_POST["senha"])) {
-    if ($_POST["usuario"] === $usuarioCorreto && $_POST["senha"] === $senhaCorreta) {
-        $mensagem = "Login realizado com sucesso";
-    } else {
-        $mensagem = "Usuário ou senha incorretos";
-    }
+$user = "administrador";
+$senha = 12345;
+
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+    $user = $_POST["user"];
+    $senha = $_POST["senha"];
 }
+
+
+if($user != "administrador"){
+    $user = "Usuario incorreto, tente novamente";
+}
+else{
+    $user = "Usuario correto";
+}
+
+if($senha != 12345){
+    $senha = "Senha incorreta, tente novamente";
+}
+else{
+    $senha = "Senha correta";
+}
+
+
 ?>
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <title>Login básico</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <title>Document</title>
 </head>
 <body>
-    <main class="container">
-        <h1>Login básico</h1>
-        <form method="POST" action="">
-            <label for="usuario">Usuário</label>
-            <input type="text" id="usuario" name="usuario" required>
-            <label for="senha">Senha</label>
-            <input type="password" id="senha" name="senha" required>
+    <div class="container" >
+        <form method="POST">
+            <input type="text" id="user" name="user" required>
+            <p></p>
+            <input type="number" id="senha" name="senha" required>
+            <p></p>
             <button type="submit">Entrar</button>
         </form>
-        <?php if ($mensagem !== ""): ?>
-            <p class="card" role="status"><?php echo htmlspecialchars($mensagem, ENT_QUOTES, "UTF-8"); ?></p>
-        <?php endif; ?>
-    </main>
+
+        <?php ?>
+
+        <h2>
+            <?= $user ?> 
+            <p></p>
+            <?=  $senha ?>
+        </h2>
+        
+        <?php ?> 
+
+    </div>
 </body>
 </html>
-<?php
-// Credenciais para testar: felipe / 1234.
-// GET envia os dados pela URL, onde ficam visíveis; POST envia os dados no corpo da requisição.
-?>

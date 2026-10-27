@@ -1,65 +1,50 @@
- <?php
-        $nome = "";
-        $idade = "";
-        $resultado = "";
+<?php
 
-
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+         $nome = "";
+         $idade = 0;
+         $resultado = "";
+    
+        if($_SERVER["REQUEST_METHOD"]=="POST"){
             $nome = $_POST["nome"];
             $idade = $_POST["idade"];
 
-            if ($idade >=18)
-            {
-                $resultado = "você é maior de idade";
+            if($idade >= 18){
+                $resultado = "maior de idade";
             }
-
-            else if($idade <= 0)
-            {
-                $resultado = "invalido";
+            else if($idade <= 0){
+                $resultado = "idade invalida";
             }
-
-            else {
-                $resultado ="você é menor de idade";
+            else{
+            $resultado = "menor de idade";
             }
         }
-
-    ?>
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-
-    <title>AULA LUCAS LUZ</title>
-</head>
-
-<body>
-         <div class='container'>
-
-         <h1>Informações do Aluno</h1>
-
-         <form method="POST">
-
-             <input type="text" id="nome" name="nome" required placeholder="Digite seu nome">
-
-             <input type="number" id="idade" name="idade" required placeholder="Digite sua idade">
-
-             <button type="submit">Verificar</button>
-
-         </form>
-
-         <?php
-            if ($resultado != "") {
-                echo "<h2>Olá, $nome! $resultado</h2>";
-            }
-         ?>
-
-         </div>
-
-         
-
-</body>
-
-</html>
+?>
+    <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="../css/idade.css">
+            <title>Document</title>
+        </head>
+        <body>
+            <div class="container" >
+            <form method="POST">
+                <input type="text" id="nome" name="nome" required>
+                <input type="number" id="idade" name="idade" required>
+                <button type="submit">enviar</button>
+            </form>
+            <?php if($resultado != ""){ ?>
+            
+                <h2>olá <?= $nome ?>, 
+                <p></p>
+                você tem <?=  $idade ?>
+                <p></p>
+                 e é <?=  $resultado ?></h2>
+            
+            <?php } ?> 
+            </div>
+        </html>
+        
+        </body>
+        </html>

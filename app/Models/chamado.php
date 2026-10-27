@@ -1,113 +1,124 @@
-<?php
-
-class Chamado{// READ - Ler todos os chamados
-public function lerChamados(): array
-{
-    $arquivo = dirname(__DIR__, 2) . '/storage/data/dados.json';
-
-// Cria o arquivo JSON se ele ainda não existir
-    if (!file_exists($arquivo)) {
-        file_put_contents($arquivo, '[]');
-    }
-
-    $conteudo = file_get_contents($arquivo);
-    $chamados = json_decode($conteudo, true);
-
-    return is_array($chamados) ? $chamados : [];
-}
-
-// SAVE - Salvar os chamados no JSON
-public function salvarChamados(array $chamados): bool
-{
-    $arquivo = dirname(__DIR__, 2) . '/storage/data/dados.json';
-    $json = json_encode($chamados, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-
-    return $json !== false && file_put_contents($arquivo, $json) !== false;
-}
-
-// CREATE - Cadastrar chamado
-public function cadastrarChamados(string $nome, string $setor, string $equipamento, string $descricao, string $prioridade): bool
-{
-    $setores = ['Produção', 'Administrativo', 'Logística', 'Financeiro', 'TI'];
-    $equipamentos = ['Computador', 'Impressora', 'Rede', 'Sistema', 'Outro'];
-    $prioridades = ['Baixa', 'Média', 'Alta'];
-
-    if (trim($nome) === '' || trim($descricao) === '') {
-        return false;
-    }
-
-    if (!in_array($setor, $setores, true) || !in_array($equipamento, $equipamentos, true) || !in_array($prioridade, $prioridades, true)) {
-        return false;
-    }
-
-    $chamados = $this->lerChamados();
-    $chamados[] = [
-        'nome' => $nome,
-        'setor' => $setor,
-        'equipamento' => $equipamento,
-        'descricao' => $descricao,
-        'prioridade' => $prioridade,
-        'status' => 'Aberto'
-    ];
-
-    return $this->salvarChamados($chamados);
-}
-
-// UPDATE - Atualizar status do chamado
-public function atualizarChamado(int $numero, string $novoStatus): bool
-{
-    $chamados = $this->lerChamados();
-    $statusValidos = ['Aberto', 'Em andamento', 'Resolvido'];
-
-    if (!isset($chamados[$numero]) || !in_array($novoStatus, $statusValidos, true)) {
-        return false;
-    }
-
-    $chamados[$numero]['status'] = $novoStatus;
-    return $this->salvarChamados($chamados);
-}
-
-// DELETE - Excluir chamado
-public function excluirChamado(int $numero): bool
-{
-    $chamados = $this->lerChamados();
-
-    if (!isset($chamados[$numero])) {
-        return false;
-    }
-
-    array_splice($chamados, $numero, 1);
-    return $this->salvarChamados($chamados);
-}
-
-// Contar chamados por status
-public function contarChamados(): array
-{
-    $quantidades = ['total' => 0, 'abertos' => 0, 'andamento' => 0, 'resolvidos' => 0];
-
-    foreach ($this->lerChamados() as $chamado) {
-        $quantidades['total']++;
-
-        if (($chamado['status'] ?? '') === 'Aberto') {
-            $quantidades['abertos']++;
-        } elseif (($chamado['status'] ?? '') === 'Em andamento') {
-            $quantidades['andamento']++;
-        } elseif (($chamado['status'] ?? '') === 'Resolvido') {
-            $quantidades['resolvidos']++;
+<?php 
+    class Chamado{
+        public function listarChamados(): array {
+            $arquivo = __DIR__ . '/chamados.json';
+        
+            if (!file_exists($arquivo)) {
+                file_put_contents($arquivo, '[]');
+            }
+        
+            $dados = file_get_contents($arquivo);
+            if ($dados === false) {
+                return [];
+            }
+        
+            $chamados = json_decode($dados, true);
+        
+            if (!is_array($chamados)) {
+                return [];
+            }
+        
+            return $chamados;
+        }
+        
+        public function salvarChamados(array $chamados): bool {
+            $arquivo = __DIR__ . '/chamados.json';
+            $dados = json_encode($chamados, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        
+            if ($dados === false) {
+                return false;
+            }
+        
+            return file_put_contents($arquivo, $dados) !== false;
+        }
+        
+        
+        public function cadastrarChamado(string $nome, string $setor, string $equipamento, string $descricao, string $prioridade): bool {
+            if (trim($nome) == '' || trim($descricao) == '') {
+                return false;
+            }
+        
+            if (!in_array($setor, ['Produção', 'Administrativo', 'Logística', 'Financeiro', 'TI'], true)) {
+                return false;
+            }
+        
+            if (!in_array($equipamento, ['Computador', 'Impressora', 'Rede', 'Sistema', 'Outro'], true)) {
+                return false;
+            }
+        
+            if (!in_array($prioridade, ['Baixa', 'Média', 'Alta'], true)) {
+                return false;
+            }
+        
+            $chamados = $this->listarChamados();
+        
+            $novoChamado = [
+                'nome' => $nome,
+                'setor' => $setor,
+                'equipamento' => $equipamento,
+                'descricao' => $descricao,
+                'prioridade' => $prioridade,
+                'status' => 'Aberto'
+            ];
+        
+            $chamados[] = $novoChamado;
+            return $this-> salvarChamados($chamados);
+        }
+        
+         public function atualizarChamado(int $numero, string $novoStatus): bool {
+            $chamados = $this-> listarChamados();
+        
+            if (!isset($chamados[$numero])) {
+                return false;
+            }
+        
+            if ($novoStatus != 'Aberto' && $novoStatus != 'Em andamento' && $novoStatus != 'Resolvido') {
+                return false;
+            }
+        
+            $chamados[$numero]['status'] = $novoStatus;
+            return $this-> salvarChamados($chamados);
+        }
+        
+        public function excluirChamado(int $numero): bool {
+            $chamados = $this-> listarChamados();
+        
+            if (!isset($chamados[$numero])) {
+                return false;
+            }
+        
+            //unset = deletar aquelas posiçoes de espesifica
+            unset($chamados[$numero]);
+            //att a  lista  de chamados em array
+            $chamados = array_values($chamados);
+            // salvar os chamados novamente pela funçao salvarchamados
+            return $this-> salvarChamados($chamados);
+        }
+        
+        public function contarChamados(): array {
+            $chamados = $this-> listarChamados();
+        
+            $relatorio = [
+                'total' => count($chamados),
+                'abertos' => 0,
+                'andamento' => 0,
+                'resolvidos' => 0
+            ];
+        
+            foreach ($chamados as $chamado) {
+                if (is_array($chamado) && isset($chamado['status'])) {
+                    if ($chamado['status'] == 'Aberto') {
+                        $relatorio['abertos']++;
+                    } elseif ($chamado['status'] == 'Em andamento') {
+                        $relatorio['andamento']++;
+                    } elseif ($chamado['status'] == 'Resolvido') {
+                        $relatorio['resolvidos']++;
+                    }
+                }
+            }
+        
+            return $relatorio;
         }
     }
-
-    return $quantidades;
-}
-
-
-
-
-  
-}
-
-
-
-
 
 ?>
