@@ -80,7 +80,7 @@ class Guerreiro extends Personagem {
     }
 
       public function atacar(): void {
-        echo "$this->nome atacou com um axe!";
+        echo "$this->nome atacou com uma knife!";
     }
 
         public function curar(): void {
@@ -96,7 +96,7 @@ $guerreiro->defender(); // metodo proprio
 class Mago extends Personagem {
 
       public function atacar(): void {
-        echo "$this->nome lançou um exori amp vis!";
+        echo "$this->nome lançou um Expeliarmus!";
     }
 
     public function curar(): void {
@@ -111,11 +111,11 @@ $mago ->atacar(); // metodo herdado
 class Druida extends Personagem {
 
       public function atacar(): void {
-        echo "$this->nome lançou um ice strike!";
+        echo "$this->nome lançou um  strike!";
     }
 
     public function curar(): void {
-        echo "$this->nome exura gran!";
+        echo "$this->nome haduken!";
     }
 
 }
