@@ -235,7 +235,7 @@ main {
 
 .peojetos-container {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
 }
 
@@ -379,7 +379,7 @@ footer a {
     }
 
     .peojetos-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
@@ -403,6 +403,10 @@ footer a {
     .projeto-card {
         min-height: 0;
         padding: 22px;
+    }
+
+    .peojetos-container {
+        grid-template-columns: 1fr;
     }
 }
 

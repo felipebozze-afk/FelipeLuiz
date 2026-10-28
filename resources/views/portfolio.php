@@ -126,6 +126,18 @@
                     </div>
                     <a href="index.php?rota=notas" class="link-projeto">Ver projeto</a>
                 </div>
+
+                <div class="projeto-card">
+                    <div class="projeto-numero">05</div>
+                    <h3>Cadastro de Máquinas</h3>
+                    <p>Sistema desenvolvido para praticar orientação a objetos, formulários e sessões.</p>
+                    <div class="tecnologias">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>PHP</span>
+                    </div>
+                    <a href="index.php?rota=poo2" class="link-projeto">Ver projeto</a>
+                </div>
             </div>
         </section>
 
