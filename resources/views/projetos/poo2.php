@@ -108,48 +108,31 @@ function escapar($texto) {
 <body>
     <main>
         <h1>Cadastro de máquinas</h1>
-
-        <?php if ($mensagem !== "") { ?>
+        <?php if ($mensagem !== ""): ?>
             <p><?= escapar($mensagem) ?></p>
-        <?php } ?>
-
+        <?php endif; ?>
         <section>
             <h2>Cadastrar máquina</h2>
-            <form method="POST" action="">
-                <div>
-                    <label for="nome">Nome da máquina:</label>
-                    <input type="text" id="nome" name="nome" required>
-                </div>
-
-                <div>
-                    <label for="tipo">Tipo:</label>
-                    <select id="tipo" name="tipo" required>
-                        <option value="">Selecione</option>
-                        <option value="esteira">Esteira</option>
-                        <option value="prensa">Prensa</option>
-                        <option value="robodeSoldagem">Robô de soldagem</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label for="quantidade">Quantidade produzida:</label>
-                    <input type="number" id="quantidade" name="quantidade" min="1" required>
-                </div>
-
+            <form method="POST">
+                <div><label for="nome">Nome da máquina:</label><input type="text" id="nome" name="nome" required></div>
+                <div><label for="tipo">Tipo:</label><select id="tipo" name="tipo" required>
+                    <option value="">Selecione</option>
+                    <option value="esteira">Esteira</option>
+                    <option value="prensa">Prensa</option>
+                    <option value="robodeSoldagem">Robô de soldagem</option>
+                </select></div>
+                <div><label for="quantidade">Quantidade produzida:</label><input type="number" id="quantidade" name="quantidade" min="1" required></div>
                 <button type="submit">Cadastrar</button>
             </form>
         </section>
-
         <section>
             <h2>Consultar máquinas</h2>
-            <form method="GET" action="">
+            <form method="GET">
                 <label for="busca">Pesquisar por nome:</label>
-                <input type="search" id="busca" name="busca"
-                    value="<?= escapar($_GET['busca'] ?? '') ?>">
+                <input type="search" id="busca" name="busca" value="<?= escapar($_GET['busca'] ?? '') ?>">
                 <button type="submit">Pesquisar</button>
                 <a href="<?= escapar($_SERVER['PHP_SELF']) ?>">Limpar</a>
             </form>
-
             <?php
             $busca = trim($_GET['busca'] ?? '');
             $maquinasExibidas = array_filter(
@@ -160,16 +143,9 @@ function escapar($texto) {
                 }
             );
             ?>
-
-            <?php if (count($maquinasExibidas) > 0) { ?>
+            <?php if ($maquinasExibidas) { ?>
                 <table border="1">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Produção</th>
-                            <th>Operação</th>
-                        </tr>
-                    </thead>
+                    <thead><tr><th>Nome</th><th>Produção</th><th>Operação</th></tr></thead>
                     <tbody>
                         <?php foreach ($maquinasExibidas as $maquina) { ?>
                             <tr>
