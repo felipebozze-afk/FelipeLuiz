@@ -1,5 +1,6 @@
+<?php 
+//Programação orientada a objetos//
 
-<?php
 // ENCAPSULAMENTO
 // Proteger informações para que não sejam alteradas de qualquer jeito.
 
@@ -13,115 +14,96 @@
 // Mostrar o que é necessário e esconder detalhes complicados de funcionamento.
 
 // Exemplo com POO
-abstract class Personagem {
-    public $nome;
-    private $vida;
-    public $dano;
 
-    public function __construct($nome, $vida, $dano) {
+
+    abstract class Personagem {
+    public string $nome;
+    private int $vida;
+    public int $dano;
+
+    public function __construct(string $nome, int $vida, int $dano) {
         $this->nome = $nome;
         $this->vida = $vida;
         $this->dano = $dano;
     }
-    public function getVida() {
-        return $this->vida;
 
+    public function getVida(): int {
+        return $this->vida;
     }
-    public function setVida($vida) {
+
+    public function setVida(int $vida): void {
         if ($vida < 0) {
             $this->vida = 0;
-            echo "Vida não pode ser negativa! ";
+            echo "Vida nao pode ser negativa!\n";
             return;
         }
 
         $this->vida = $vida;
     }
 
-    abstract public function atacar();
-    abstract public function defender();
+    abstract public function atacar(): void;
+    abstract public function curar(): void;
 }
 
+$lucas = new Guerreiro("Knight", 100, 10);
 
+$lucas->setVida(50);
 
+$aurora = new Mago("Aurora", 50, 5);
+$chloe = new Druida("Chloe", 30, 3);
 
-class Guerreiro extends Personagem {
-
-    // Sobrescrevendo o método da classe pai
-    public function atacar() {
-        echo "$this->nome atacou com uma espada!\n";
-    }
-
-    public function defender() {
-        echo "$this->nome levantou o escudo!\n";
-    }
-}
-
-class Mago extends Personagem {
-
-    // Sobrescrevendo o método da classe pai
-    public function atacar() {
-        echo "$this->nome lançou uma bola de fogo!\n";
-    }
-
-    public function defender() {
-        echo "$this->nome conjurou um escudo mágico!\n";
-    }
-}
-
-class Curandeiro extends Personagem {
-
-    public function atacar() {
-        echo "$this->nome atacou com uma faca!\n";
-    }
-
-    public function defender() {
-        echo "$this->nome conjurou uma barreira de cura!\n";
-    }
-
-    public function curar(Personagem $alvo, int $quantidade) {
-        $novaVida = $alvo->getVida() + $quantidade;
-        $alvo->setVida($novaVida);
-        echo "$this->nome curou $alvo->nome em $quantidade pontos!\n";
-    }
-}
-
-$guerreiro = new Guerreiro("Lucas", 50, 10);
-$mago = new Mago("Aurora", 100, 5);
-$curandeiro = new Curandeiro("Chloe", 100, 3);
-
-$personagens = [$guerreiro, $mago, $curandeiro];
-
-foreach($personagens as $p) {
+$personagens = [$lucas, $aurora, $chloe];
+foreach ($personagens as $p) {
     $p->atacar();
 }
 
-$curandeiro->curar($guerreiro, 50);
+$lucas->atacar();
 
+class Guerreiro extends Personagem {
+    public function defender(): void {
+        echo "$this->nome levantou o escudo!";
+    }
 
+      public function atacar(): void {
+        echo "$this->nome atacou com um axe!";
+    }
 
+        public function curar(): void {
+                echo "$this->nome usou uma pocao!";
+        }
+}
 
+$guerreiro = new Guerreiro("Knigth", 100, 10);
 
+$guerreiro->atacar(); // metado herdado
+$guerreiro->defender(); // metodo proprio 
 
+class Mago extends Personagem {
 
+      public function atacar(): void {
+        echo "$this->nome lançou um exori amp vis!";
+    }
 
+    public function curar(): void {
+        echo "$this->nome lançou uma magia de cura!";
+    }
+}
 
-//https://felipeb315.devlook.xyz/views/projetos/poo.php
+$mago = new Mago("Aurora", 50, 5);
 
+$mago ->atacar(); // metodo herdado
 
-//1. O que é uma classe?
-//Um molde para criar objetos
+class Druida extends Personagem {
 
-//2. O que significa new Personagem?
-//Criar um objeto da classe Personagem
+      public function atacar(): void {
+        echo "$this->nome lançou um ice strike!";
+    }
 
-//3. Para que serve $this->nome?
-//Acessar o nome do objeto atual
+    public function curar(): void {
+        echo "$this->nome exura gran!";
+    }
 
-//4. O que significa extends?
-//Herdar características e métodos de outra classe .
-
-
-
+}
 
 
 
@@ -132,3 +114,18 @@ $curandeiro->curar($guerreiro, 50);
 
 
 ?>
+
+//https://thiago315.devlook.xyz/projeto/resources/Views/Projeto/poo.php
+
+
+//1. o que e uma classe?
+//um molde para criar objetos
+
+//2 o que  signifca  new  personagem()?
+//criar  um objeto da classe personagem
+
+//3 para quer serve $this->nome?
+//acessar op nome  do objeto  atual
+
+//4. oque significa extends?
+//herdar caracteristicas e  metados  de outra classe
