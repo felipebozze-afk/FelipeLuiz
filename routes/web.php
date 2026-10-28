@@ -17,7 +17,8 @@ return [
         'helpdesk' => [$projeto, 'helpdesk'],
         'poo' => [$projeto, 'poo'],
         'funcoes' => [$projeto, 'funcoes'],
-        'teste-post' => [$projeto, 'teste-post']
+        'teste-post' => [$projeto, 'teste-post'],
+        'poo2' => [$projeto, 'poo2']
     ],
     'POST' => [
         'idade' => [$projeto, 'idade'],
@@ -27,7 +28,8 @@ return [
         'notas-get' => [$projeto, 'notas-get'],
         'jogos' => [$projeto, 'jogos'],
         'helpdesk' => [$projeto, 'helpdesk'],
-        'teste-post' => [$projeto, 'teste-post']
+        'teste-post' => [$projeto, 'teste-post'],
+        'poo2' => [$projeto, 'poo2']
     ]
 ];
 ?>
