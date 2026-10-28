@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef2f7;
+    color: #263238;
+    line-height: 1.6;
+    padding: 35px 20px;
+}
+
+main {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #173b63;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+h2 {
+    color: #245786;
+    margin-bottom: 18px;
+}
+
+section {
+    background: #ffffff;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(31, 55, 80, 0.12);
+}
+
+section > p {
+    background: #e2f5e9;
+    color: #21613a;
+    padding: 10px 14px;
+    border-left: 4px solid #35a866;
+    border-radius: 5px;
+    margin-bottom: 18px;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: end;
+}
+
+form div {
+    flex: 1 1 220px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #b8c5d1;
+    border-radius: 6px;
+    font-size: 15px;
+    background: #fbfcfe;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #3478b9;
+    box-shadow: 0 0 0 3px rgba(52, 120, 185, 0.15);
+}
+
+button {
+    border: none;
+    border-radius: 6px;
+    padding: 11px 20px;
+    background: #286aa6;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d527f;
+}
+
+a {
+    color: #286aa6;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 22px;
+    background: white;
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid #d5dee7;
+    text-align: left;
+}
+
+th {
+    background: #286aa6;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #f3f7fb;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 20px 10px;
+    }
+
+    section {
+        padding: 18px;
+    }
+
+    form {
+        display: block;
+    }
+
+    form div,
+    form button,
+    form a {
+        display: block;
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+}
