@@ -13,6 +13,21 @@
 // ABSTRAÇÃO
 // Mostrar o que é necessário e esconder detalhes complicados de funcionamento.
 
+//https://felipeb315.devlook.xyz/projeto/resources/Views/Projeto/poo.php
+
+
+//1. o que e uma classe?
+//um molde para criar objetos
+
+//2 o que  signifca  new  personagem()?
+//criar  um objeto da classe personagem
+
+//3 para quer serve $this->nome?
+//acessar op nome  do objeto  atual
+
+//4. oque significa extends?
+//herdar caracteristicas e  metados  de outra classe
+
 // Exemplo com POO
 
 
@@ -114,18 +129,3 @@ class Druida extends Personagem {
 
 
 ?>
-
-//https://thiago315.devlook.xyz/projeto/resources/Views/Projeto/poo.php
-
-
-//1. o que e uma classe?
-//um molde para criar objetos
-
-//2 o que  signifca  new  personagem()?
-//criar  um objeto da classe personagem
-
-//3 para quer serve $this->nome?
-//acessar op nome  do objeto  atual
-
-//4. oque significa extends?
-//herdar caracteristicas e  metados  de outra classe
