@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/resources/css/index.css">
     <title>Atividades DS</title>
+    @vite(['resources/css/index.css'])
 </head>
 <body>
     <header>
         <nav class="navbar">
             <h2 class="logo">Meu Portifólio</h2>
-            <ul class="menu">
+            
+                <ul class="menu">
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#habilidades">Habilidades</a></li>
@@ -87,7 +89,7 @@
                         <span>CSS</span>
                         <span>PHP</span>
                     </div>
-                    <a href="index.php?rota=idade" class="link-projeto">Ver projeto</a>
+                    <a href="{{ route('') }}" class="link-projeto">Ver projeto</a>
                 </div>
 
                 <div class="projeto-card">
