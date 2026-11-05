@@ -8,4 +8,6 @@ Route::get('/', function () {
 });
 
 
-Route::get('/ HelpdeskController',[HelpdeskController::class,'index'] )->name('helpdesk')
+Route::get('/ HelpdeskController',[HelpdeskController::class,'index'] )->name('helpdesk');
+
+Route::post('/ HelpdeskController',[HelpdeskController::class,'index'] )->name('helpdesk.salvar');

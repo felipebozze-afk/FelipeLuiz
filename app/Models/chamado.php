@@ -1,7 +1,9 @@
 <?php 
+
+namespace app\models;
     class Chamado{
         public function listarChamados(): array {
-            $arquivo = __DIR__ . '/chamados.json';
+            $arquivo = storage_path('app/chamados.json');
         
             if (!file_exists($arquivo)) {
                 file_put_contents($arquivo, '[]');
