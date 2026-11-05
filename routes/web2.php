@@ -1,13 +1,18 @@
-<?php
+<?php 
 
-use Illuminate\Support\Facades\Route;
-use app\Http\Controllers\HelpdeskController;
+    require_once __DIR__ . '/../app/Http/Controllers/HelpdeskController.php';    
 
-Route::get('/', function () {
-    return view('portifolio');
-});
-
-
-Route::get('/ HelpdeskController',[HelpdeskController::class,'index'] )->name('helpdesk');
-
-Route::post('/ HelpdeskController',[HelpdeskController::class,'index'] )->name('helpdesk.salvar');
+    return[
+        'GET' =>[
+            'portifolio' => [new PortifolioController(), 'index'],
+            'helpdesk' => [new HelpdeskController(), 'index'],
+            'jogos' => [],
+            'login' => [],
+            'notas' => [],
+            'idade' => []
+        ],
+            'POST' => [
+                'helpdesk' => [new HelpdeskController, ''],
+        ]
+            ];
+?>
