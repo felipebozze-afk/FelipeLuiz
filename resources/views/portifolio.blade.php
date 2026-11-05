@@ -89,7 +89,7 @@
                         <span>CSS</span>
                         <span>PHP</span>
                     </div>
-                    <a href="{{ route('') }}" class="link-projeto">Ver projeto</a>
+                    <a href="" class="link-projeto">Ver projeto</a>
                 </div>
 
                 <div class="projeto-card">
