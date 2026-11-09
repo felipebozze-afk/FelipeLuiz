@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/resources/css/index.css">
-    <title>Atividades DS</title>
+    <link rel="stylesheet" href="/projeto/resources/css/index.css">
+    <title>Felipe Luiz | Portfólio</title>
+
     @vite(['resources/css/index.css'])
+
 </head>
-<body>
+<body class="portfolio-page">
     <header>
         <nav class="navbar">
-            <h2 class="logo">Meu Portifólio</h2>
-            
-                <ul class="menu">
+            <a class="logo" href="#inicio">FL<span>.</span></a>
+            <ul class="menu">
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#habilidades">Habilidades</a></li>
@@ -24,143 +25,92 @@
     <main>
         <section id="inicio" class="inicio">
             <div class="inicio-conteudo">
-                <p class="saudacao">Olá, eu sou </p>
+                <p class="saudacao">PORTFÓLIO</p>
                 <h1>Felipe Luiz</h1>
                 <h2>Desenvolvedor em Formação</h2>
-                <p></p>
-                <a href="#projetos" class="botao">
-                    Ver meus Projetos
-                </a>
+                <p class="inicio-descricao">Estudante de Desenvolvimento de Sistemas, aprendendo e criando projetos para a web.</p>
+                <a href="#projetos" class="botao">Ver projetos</a>
             </div>
         </section>
 
-        <section id="sobre" class="secao">
-            <h2 class="titulo-secao">Sobre Mim</h2>
-            <div class="foto">
-                JS
-            </div>
+        <section id="sobre" class="secao sobre">
             <div class="sobre-texto">
-                <h3>Quem sou eu?</h3>
-                <p>
-                    Me chamo Felipe Luiz sou 
-                    estudante de desenvolvimento de sistemas.
-                </p>
-                <p>
-                    Atualmente estou estudando sobre PHP, HTML e CSS. Este portifolio reune 
-                    alguns dos meus projetos que desenvolvi durante o curso de desenvolvimento de sistemas.
-                </p>
-                <p>
-                    Meu objetivo é seguir evoluindo como desenvolvedor,
-                    além de aprender novas tecnologias.
-                </p>
+                <h2 class="titulo-secao">Sobre mim</h2>
+                <p>Sou estudante de Desenvolvimento de Sistemas e estou aprendendo HTML, CSS, PHP e MySQL.</p>
+                <p>Este portfólio reúne alguns dos projetos que desenvolvi durante o curso.</p>
             </div>
         </section>
 
         <section id="habilidades" class="secao secao-destaque">
-            <h2 class="titulo-secao">Minhas Habilidades</h2>
-            <p class="subtitulo-secao">
-                Algumas tecnologias que estou estudando:
-            </p>
+            <div class="habilidades-intro">
+                <h2 class="titulo-secao">Habilidades</h2>
+                <p>Tecnologias que estou estudando:</p>
+            </div>
             <div class="lista-habilidades">
-                <div class="habilidades">
-                    HTML
-                </div>
-                <div class="habilidades">
-                    CSS
-                </div>
-                <div class="habilidades">
-                    PHP
-                </div>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>PHP</span>
+                <span>MySQL</span>
             </div>
         </section>
         
         <section id="projetos" class="secao">
-            <h2 class="titulo-secao">Meus Projetos</h2>
-            <p class="subtitulo-secao">
-                Alguns projetos desenvolvidos durante as aulas:
-            </p>
-            <div class="peojetos-container">
+            <div class="projetos-cabecalho">
+                <div>
+                    <h2 class="titulo-secao">Projetos</h2>
+                </div>
+                <p class="subtitulo-secao">Alguns projetos desenvolvidos durante as aulas.</p>
+            </div>
+            <div class="projetos-container">
                 <div class="projeto-card">
-                    <div class="projeto-numero">01</div>
                     <h3>Verificação de Idade</h3>
-                    <p>Sistema desenvolvido para praticar formulários e manipulação de dados.</p>
-                    <div class="tecnologias">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>PHP</span>
-                    </div>
-                    <a href="" class="link-projeto">Ver projeto</a>
+                    <p>Uma página interativa para praticar formulários, condições e manipulação de dados.</p>
+                    <div class="tecnologias"><span>HTML</span><span>CSS</span><span>PHP</span></div>
+                    <a href="{{ route('idade') }}" class="link-projeto">Ver projeto</a>
                 </div>
-
                 <div class="projeto-card">
-                    <div class="projeto-numero">02</div>
-                    <h3>Login Básico</h3>
-                    <p>Sistema desenvolvido para praticar inserção e validação de dados.</p>
-                    <div class="tecnologias">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>PHP</span>
-                    </div>
-                    <a href="index.php?rota=loginbasico" class="link-projeto">Ver projeto</a>
+                    <h3>Cadastro de Jogos</h3>
+                    <p>Cadastro de jogos com prática de persistência e manipulação de informações.</p>
+                    <div class="tecnologias"><span>HTML</span><span>CSS</span><span>PHP</span><span>MySQL</span></div>
+                    <a href="{{ route('jogos') }}" class="link-projeto">Ver projeto</a>
                 </div>
-
                 <div class="projeto-card">
-                    <div class="projeto-numero">03</div>
-                    <h3>Teste JSON</h3>
-                    <p>Sistema desenvolvido para praticar inserção e manipulação de dados.</p>
-                    <div class="tecnologias">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>PHP</span>
-                        <span>MySQL</span>
-                    </div>
-                    <a href="index.php?rota=json" class="link-projeto">Ver projeto</a>
-                </div>
-
-                <div class="projeto-card">
-                    <div class="projeto-numero">04</div>
                     <h3>Notas</h3>
-                    <p>Sistema desenvolvido para praticar manipulação de informações e formulários.</p>
-                    <div class="tecnologias">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>PHP</span>
-                    </div>
-                    <a href="index.php?rota=notas" class="link-projeto">Ver projeto</a>
+                    <p>Exercício para organizar informações e trabalhar com formulários.</p>
+                    <div class="tecnologias"><span>HTML</span><span>CSS</span><span>PHP</span></div>
+                    <a href="{{ route('notas') }}" class="link-projeto">Ver projeto</a>
                 </div>
-
                 <div class="projeto-card">
-                    <div class="projeto-numero">05</div>
-                    <h3>Cadastro de Máquinas</h3>
-                    <p>Sistema desenvolvido para praticar orientação a objetos, formulários e sessões.</p>
-                    <div class="tecnologias">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>PHP</span>
-                    </div>
-                    <a href="index.php?rota=poo2" class="link-projeto">Ver projeto</a>
+                    <h3>Login básico</h3>
+                    <p>Uma introdução à lógica de autenticação e ao processamento no servidor.</p>
+                    <div class="tecnologias"><span>HTML</span><span>CSS</span><span>PHP</span></div>
+                    <a href="{{ route('login-basico') }}" class="link-projeto">Ver projeto</a>
                 </div>
+                <div class="projeto-card">
+                    <h3>Controle de produção industrial</h3>
+                    <p>Sistema para cadastrar máquinas e acompanhar a produção, praticando classes abstratas, herança e polimorfismo em PHP.</p>
+                    <div class="tecnologias"><span>PHP</span><span>POO</span><span>Sessões</span></div>
+                    <a href="{{ route('poo2') }}" class="link-projeto">Ver projeto</a>
+                </div>
+                
             </div>
         </section>
 
-        <section id="contato" class=" secao secao-destaque">
-            <h2 class="titulo-secao"></h2>
-                <p class="subtitulo-secao">
-                    Entre em contato comigo
-                </p>
-                <div class="contato-container">
-                    <div class="contato-item">
-                        <h3><a href="https://github.com/felipebozze-afk" target="_blank" rel="noopener noreferrer">Visitar meu GitHub</a></h3>
-                        <p></p>
-                    </div>
-                </div>
+        <section id="contato" class="secao contato secao-destaque">
+            <div>
+                <h2 class="titulo-secao">Contato</h2>
+                <p>Acompanhe meus projetos no GitHub.</p>
+            </div>
+            <a class="contato-link" href="https://github.com/felipebozze-afk" target="_blank" rel="noopener noreferrer">
+                GitHub
+            </a>
         </section>
     </main>
     
     <footer>
-            <p>
-                Desenvolvido por: <a href="https://felipeb315.devlook.xyz/">Felipe Luiz</a> 2026
-            </p>
-        </footer>
+        <p>Desenvolvido por <strong>Felipe Luiz</strong></p>
+        <a href="#inicio">Voltar ao topo ↑</a>
+        <p>© 2026</p>
+    </footer>
 </body>
 </html>
