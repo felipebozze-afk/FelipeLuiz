@@ -6,10 +6,10 @@
         'GET' =>[
             'portifolio' => [new PortifolioController(), 'index'],
             'helpdesk' => [new HelpdeskController(), 'index'],
-            'jogos' => [],
-            'login' => [],
-            'notas' => [],
-            'idade' => []
+            'jogos' => [new PortfolioController(), 'index'],
+            'login' => [new PortfolioController(), 'index'],
+            'notas' => [new PortfolioController(), 'index'],
+            'idade' => [new PortfolioController(), 'index']
         ],
             'POST' => [
                 'helpdesk' => [new HelpdeskController, ''],
